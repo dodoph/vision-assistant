@@ -17,10 +17,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/*send request to Google API; return OK, if success
+*/
 public class AnnotateHelper {
 	public static enum Status {
-		OK, ERROR;
+		OK, ERROR; 
 	}
 	
 	public static Status annotate(Image img, StringBuilder result) {
@@ -29,6 +30,7 @@ public class AnnotateHelper {
 		// GCE VM can do authentication directly.
 		GoogleCredentials myCredentials = null;
 		try {
+			// read credentials
 			myCredentials = GoogleCredentials
 					.fromStream(new FileInputStream("/Users/jessietang/Downloads/vissist-b916a6477319.json"));
 		} catch (FileNotFoundException e) {
